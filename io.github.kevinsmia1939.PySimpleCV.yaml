@@ -1,7 +1,7 @@
 app-id: io.github.kevinsmia1939.PySimpleCV
 runtime: org.freedesktop.Platform
 sdk: org.freedesktop.Sdk
-runtime-version: '22.08'
+runtime-version: '23.08'
 command: PySimpleCV
 finish-args:
   - --share=ipc
@@ -12,19 +12,6 @@ cleanup:
   - /include
   - /share/man
 modules:
-  - name: meson
-    buildsystem: simple
-    build-commands:
-      - python3 setup.py build
-      - python3 setup.py install --prefix=/app --root=/
-    sources:
-      - type: git
-        url: https://github.com/mesonbuild/meson.git
-        tag: 1.2.3
-        x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
-
   - name: OpenBLAS
     buildsystem: cmake-ninja
     builddir: true
